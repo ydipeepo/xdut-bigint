@@ -29,20 +29,20 @@
 class_name BigInt
 
 #-------------------------------------------------------------------------------
-#	CONSTANTS
+#	PROPERTIES
 #-------------------------------------------------------------------------------
 
-## 0 を表す [BigInt] を作成します。
+## 0 を表す [BigInt]。
 static var ZERO: BigInt:
 	get:
 		return _zero
 
-## 1 を表す [BigInt] を作成します。
+## 1 を表す [BigInt]。
 static var ONE: BigInt:
 	get:
 		return _one
 
-## 2^63-1 を表す [BigInt] を作成します。
+## 2^63-1 を表す [BigInt]。
 static var INT_MAX: BigInt:
 	get:
 		return _int_max
@@ -51,12 +51,12 @@ static var INT_MAX: BigInt:
 #	PROPERTIES
 #-------------------------------------------------------------------------------
 
-## この任意精度整数が 0 かどうかを返します。
+## この [BigInt] が 0 の場合 [code]true[/code]、それ以外の場合は [code]false[/code] を返します。
 var is_zero: bool:
 	get:
 		return _is_zero(_read_big_int(self))
 
-## この任意精度整数の桁数を返します。
+## この [BigInt] の桁数を返します。
 var digits: int:
 	get:
 		return _array.size()
@@ -65,11 +65,11 @@ var digits: int:
 #	METHODS
 #-------------------------------------------------------------------------------
 
-## 変換可能な値から [BigInt] を作成します。
+## [BigInt] を作成します。
 static func from(value: Variant) -> BigInt:
 	return BigInt.new(_read(value))
 
-## この任意精度整数から指定した位置の上ケタの値を取得します。
+## この [BigInt] の指定した位置の上ケタを取得します。
 func upper(index: int) -> int:
 	var n := _array.size()
 	if index < 0 or n <= index:
@@ -77,26 +77,26 @@ func upper(index: int) -> int:
 		return -1
 	return _array[n - index - 1]
 
-## この任意精度整数から指定した位置の下ケタの値を取得します。
+## この [BigInt] の指定した位置の下ケタを取得します。
 func lower(index: int) -> int:
 	if index < 0 or _array.size() <= index:
 		printerr("Out of range.")
 		return -1
 	return _array[index]
 
-## この任意精度整数が与えられた値と等値か判定します。
+## この [BigInt] が与えられた値と等値か判定します。
 func equals(value: Variant) -> bool:
 	var array1 := _read_big_int(self)
 	var array2 := _read(value)
 	return array1 == array2
 
-## この任意精度整数が与えられた値より小さいか判定します。
+## この [BigInt] が与えられた値より小さいか判定します。
 func less(value: Variant) -> bool:
 	var array1 := _read_big_int(self)
 	var array2 := _read(value)
 	return _less(array1, array2)
 
-## この任意精度整数をインクリメントした [BigInt] を返します。
+## この [BigInt] をインクリメントした新たな [BigInt] を返します。
 func increment() -> BigInt:
 	var array := _read_big_int(self)
 	if _is_zero(array):
@@ -105,12 +105,12 @@ func increment() -> BigInt:
 		array = _increment(array, true)
 	return new(array)
 
-## この任意精度整数をデクリメントできるかを返します。
+## この [BigInt] をデクリメントできるかを返します。
 func can_decrement() -> bool:
 	var array := _read_big_int(self)
 	return _can_decrement(array)
 
-## この任意精度整数をデクリメントした [BigInt] を返します。
+## この [BigInt] をデクリメントした新たな [BigInt] を返します。
 func decrement() -> BigInt:
 	var array := _read_big_int(self)
 	if _is_one(array):
@@ -119,7 +119,7 @@ func decrement() -> BigInt:
 		array = _decrement(array, true)
 	return new(array)
 
-## この任意精度整数と与えられた値の和を求め [BigInt] として返します。
+## この [BigInt] と与えられた値の和を求め新たな [BigInt] として返します。
 func add(value: Variant) -> BigInt:
 	var array1 := _read_big_int(self)
 	var array2 := _read(value)
@@ -129,13 +129,13 @@ func add(value: Variant) -> BigInt:
 		array1 = _add(array1, array2, true)
 	return new(array1)
 
-## この任意精度整数と与えられた値を減算できるかを返します。
+## この [BigInt] と与えられた値の差を求めることができるかを返します。
 func can_subtract(value: Variant) -> bool:
 	var array1 := _read_big_int(self)
 	var array2 := _read(value)
 	return _can_subtract(array1, array2)
 
-## この任意精度整数と与えられた値の差を求め [BigInt] として返します。
+## この [BigInt] と与えられた値の差を求め新たな [BigInt] として返します。
 func subtract(value: Variant) -> BigInt:
 	var array1 := _read_big_int(self)
 	var array2 := _read(value)
@@ -145,7 +145,7 @@ func subtract(value: Variant) -> BigInt:
 		array1 = _subtract(array1, array2, true)
 	return new(array1)
 
-## この任意精度整数と与えられた値の積を求め [BigInt] として返します。
+## この [BigInt] と与えられた値の積を求め新たな [BigInt] として返します。
 func multiply(value: Variant) -> BigInt:
 	var array1 := _read_big_int(self)
 	var array2 := _read(value)
@@ -155,27 +155,27 @@ func multiply(value: Variant) -> BigInt:
 		array1 = _multiply(array1, array2, true)
 	return new(array1)
 
-## この任意精度整数と与えられた値を除算できるかを返します。
+## この [BigInt] と与えられた値の商を求めることができるかを返します。
 func can_divide(value: Variant) -> bool:
 	var array1 := _read_big_int(self)
 	var array2 := _read(value)
 	return _can_divide(array1, array2)
 
-## この任意精度整数と与えられた値の商を求め [BigInt] として返します。
+## この [BigInt] と与えられた値の商を求め新たな [BigInt] として返します。
 func divide(value: Variant) -> BigInt:
 	var array1 := _read_big_int(self)
 	var array2 := _read(value)
 	array1 = _divide(array1, array2, true)
 	return new(array1)
 
-## この任意精度整数と与えられた値の剰余を求め [BigInt] として返します。
+## この [BigInt] と与えられた値の剰余を求め新たな [BigInt] として返します。
 func modulo(value: Variant) -> BigInt:
 	var array1 := _read_big_int(self)
 	var array2 := _read(value)
 	array1 = _modulo(array1, array2, true)
 	return new(array1)
 
-## この任意精度整数を [int] 型として表現される整数に変換します。
+## この [BigInt] を [code]int[/code] 型として表現される整数に変換します。
 func to_int() -> int:
 	var array := _read_big_int(self)
 	if _less(_array_int_max, array):
