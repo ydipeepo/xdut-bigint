@@ -1,0 +1,376 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfpp51itiuggs"]
+
+[ext_resource type="Script" path="res://Test_BigInt.gd" id="1_njdli"]
+
+[node name="Test_BigInt" type="MarginContainer"]
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 32
+script = ExtResource("1_njdli")
+
+[node name="Container" type="VBoxContainer" parent="."]
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+localize_numeral_system = false
+theme_override_constants/separation = 0
+metadata/_edit_group_ = true
+
+[node name="Header" type="VBoxContainer" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Title" type="Label" parent="Container/Header"]
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 20
+text = "XDUT Big Integer"
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Container/Header"]
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+localize_numeral_system = false
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_font_sizes/font_size = 12
+text = "任意長整数を表現するためのアドオンです。"
+vertical_alignment = 1
+
+[node name="Separator_1" type="HSeparator" parent="Container"]
+auto_translate_mode = 2
+modulate = Color(1, 1, 1, 0.247059)
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+localize_numeral_system = false
+
+[node name="Content" type="HBoxContainer" parent="Container"]
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+size_flags_vertical = 3
+localize_numeral_system = false
+theme_override_constants/separation = 0
+metadata/_edit_group_ = true
+
+[node name="Column_1_0_0" type="VBoxContainer" parent="Container/Content"]
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+localize_numeral_system = false
+theme_override_constants/separation = 0
+metadata/_edit_group_ = true
+
+[node name="Title" type="Label" parent="Container/Content/Column_1_0_0"]
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+localize_numeral_system = false
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "1.0.0 に含まれる機能"
+vertical_alignment = 1
+
+[node name="From" type="CheckBox" parent="Container/Content/Column_1_0_0"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+localize_numeral_system = false
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_constants/h_separation = 8
+theme_override_font_sizes/font_size = 10
+button_mask = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "BigInt.from()"
+
+[node name="Upper" type="CheckBox" parent="Container/Content/Column_1_0_0"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+localize_numeral_system = false
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_constants/h_separation = 8
+theme_override_font_sizes/font_size = 10
+button_mask = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "BigInt.upper()"
+
+[node name="Lower" type="CheckBox" parent="Container/Content/Column_1_0_0"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+localize_numeral_system = false
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_constants/h_separation = 8
+theme_override_font_sizes/font_size = 10
+button_mask = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "BigInt.lower()"
+
+[node name="Equals" type="CheckBox" parent="Container/Content/Column_1_0_0"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+localize_numeral_system = false
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_constants/h_separation = 8
+theme_override_font_sizes/font_size = 10
+button_mask = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "BigInt.equals()"
+
+[node name="Less" type="CheckBox" parent="Container/Content/Column_1_0_0"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+localize_numeral_system = false
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_constants/h_separation = 8
+theme_override_font_sizes/font_size = 10
+button_mask = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "BigInt.less()"
+
+[node name="Increment" type="CheckBox" parent="Container/Content/Column_1_0_0"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+localize_numeral_system = false
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_constants/h_separation = 8
+theme_override_font_sizes/font_size = 10
+button_mask = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "BigInt.increment()"
+
+[node name="Decrement" type="CheckBox" parent="Container/Content/Column_1_0_0"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+localize_numeral_system = false
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_constants/h_separation = 8
+theme_override_font_sizes/font_size = 10
+button_mask = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "BigInt.decrement()"
+
+[node name="Add" type="CheckBox" parent="Container/Content/Column_1_0_0"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+localize_numeral_system = false
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_constants/h_separation = 8
+theme_override_font_sizes/font_size = 10
+button_mask = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "BigInt.add()"
+
+[node name="Subtract" type="CheckBox" parent="Container/Content/Column_1_0_0"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+localize_numeral_system = false
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_constants/h_separation = 8
+theme_override_font_sizes/font_size = 10
+button_mask = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "BigInt.subtract()"
+
+[node name="Multiply" type="CheckBox" parent="Container/Content/Column_1_0_0"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+localize_numeral_system = false
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_constants/h_separation = 8
+theme_override_font_sizes/font_size = 10
+button_mask = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "BigInt.multiply()"
+
+[node name="Divide" type="CheckBox" parent="Container/Content/Column_1_0_0"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+localize_numeral_system = false
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_constants/h_separation = 8
+theme_override_font_sizes/font_size = 10
+button_mask = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "BigInt.divide()"
+
+[node name="Modulo" type="CheckBox" parent="Container/Content/Column_1_0_0"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+localize_numeral_system = false
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_constants/h_separation = 8
+theme_override_font_sizes/font_size = 10
+button_mask = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "BigInt.modulo()"
+
+[node name="ToString" type="CheckBox" parent="Container/Content/Column_1_0_0"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+localize_numeral_system = false
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_constants/h_separation = 8
+theme_override_font_sizes/font_size = 10
+button_mask = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "BigInt.to_string()"
+
+[node name="ToInt" type="CheckBox" parent="Container/Content/Column_1_0_0"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+localize_numeral_system = false
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_constants/h_separation = 8
+theme_override_font_sizes/font_size = 10
+button_mask = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "BigInt.to_int()"
+
+[node name="Separator_2" type="HSeparator" parent="Container"]
+auto_translate_mode = 2
+modulate = Color(1, 1, 1, 0.247059)
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+localize_numeral_system = false
+
+[node name="Footer" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Status" type="Label" parent="Container/Footer"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+texture_filter = 1
+texture_repeat = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+localize_numeral_system = false
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_font_sizes/font_size = 12
+text = "読み込み中..."
+vertical_alignment = 1
