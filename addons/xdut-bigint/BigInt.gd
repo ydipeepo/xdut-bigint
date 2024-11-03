@@ -185,6 +185,11 @@ func to_int() -> int:
 
 #-------------------------------------------------------------------------------
 
+#
+# 以下のコードの GDScript ポートです。
+# //www.geeksforgeeks.org/bigint-big-integers-in-c-with-example/
+#
+
 const _INT_MAX := 9223372036854775807
 
 static var _array_0 := PackedByteArray([0])
