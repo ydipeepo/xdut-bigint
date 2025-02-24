@@ -170,6 +170,157 @@ func test_to_int() -> void:
 
 	%ToInt.button_pressed = true
 
+func test_si_formatter() -> void:
+	var f := BigIntSIFormatter.new()
+	
+	assert(BigInt.from("123").format(f) == "123")
+	assert(BigInt.from("1234").format(f) == "1234")
+	assert(BigInt.from("123456").format(f) == "123456")
+	assert(BigInt.from("1234567").format(f) == "1234567")
+
+	f.unit_adjustment = true
+	f.unit_adjustment_precision = BigIntSIFormatter.DECIMAL_PRECISION_AUTO
+	f.use_kilo_unit = true
+
+	assert(BigInt.from("123").format(f) == "123")
+	assert(BigInt.from("1234").format(f) == "1k")
+	assert(BigInt.from("123456").format(f) == "123k")
+	assert(BigInt.from("1234567").format(f) == "1M")
+
+	f.digit_separator = BigIntSIFormatter.DIGIT_SEPARATOR_COMMA
+
+	assert(BigInt.from("123").format(f) == "123")
+	assert(BigInt.from("1234").format(f) == "1.234k")
+	assert(BigInt.from("123456").format(f) == "123.456k")
+	assert(BigInt.from("1234567").format(f) == "1.234M")
+
+	%BigIntSIFormatter.button_pressed = true
+
+func test_short_form_formatter() -> void:
+	var f := BigIntShortFormFormatter.new()
+	
+	assert(BigInt.from("123").format(f) == "123")
+	assert(BigInt.from("1234").format(f) == "1234")
+	assert(BigInt.from("123456").format(f) == "123456")
+	assert(BigInt.from("1234567").format(f) == "1234567")
+
+	f.unit_adjustment = true
+	f.unit_adjustment_precision = BigIntShortFormFormatter.DECIMAL_PRECISION_AUTO
+
+	assert(BigInt.from("123").format(f) == "123")
+	assert(BigInt.from("1234").format(f) == "1Thousand")
+	assert(BigInt.from("123456").format(f) == "123Thousand")
+	assert(BigInt.from("1234567").format(f) == "1Million")
+
+	f.digit_separator = BigIntShortFormFormatter.DIGIT_SEPARATOR_COMMA
+
+	assert(BigInt.from("123").format(f) == "123")
+	assert(BigInt.from("1234").format(f) == "1.234Thousand")
+	assert(BigInt.from("123456").format(f) == "123.456Thousand")
+	assert(BigInt.from("1234567").format(f) == "1.234Million")
+
+	%BigIntShortFormFormatter.button_pressed = true
+
+func test_long_form_formatter() -> void:
+	var f := BigIntLongFormFormatter.new()
+	
+	assert(BigInt.from("123").format(f) == "123")
+	assert(BigInt.from("1234").format(f) == "1234")
+	assert(BigInt.from("123456").format(f) == "123456")
+	assert(BigInt.from("1234567").format(f) == "1234567")
+
+	f.unit_adjustment = true
+	f.unit_adjustment_precision = BigIntLongFormFormatter.DECIMAL_PRECISION_AUTO
+
+	assert(BigInt.from("123").format(f) == "123")
+	assert(BigInt.from("1234").format(f) == "1Thousand")
+	assert(BigInt.from("123456").format(f) == "123Thousand")
+	assert(BigInt.from("1234567").format(f) == "1Million")
+
+	f.digit_separator = BigIntLongFormFormatter.DIGIT_SEPARATOR_COMMA
+
+	assert(BigInt.from("123").format(f) == "123")
+	assert(BigInt.from("1234").format(f) == "1.234Thousand")
+	assert(BigInt.from("123456").format(f) == "123.456Thousand")
+	assert(BigInt.from("1234567").format(f) == "1.234Million")
+
+	%BigIntLongFormFormatter.button_pressed = true
+
+func test_japanese_formatter() -> void:
+	var f := BigIntJapaneseFormatter.new()
+	
+	assert(BigInt.from("123").format(f) == "123")
+	assert(BigInt.from("1234").format(f) == "1234")
+	assert(BigInt.from("123456").format(f) == "123456")
+	assert(BigInt.from("1234567").format(f) == "1234567")
+
+	f.unit_adjustment = true
+	f.unit_adjustment_precision = BigIntJapaneseFormatter.DECIMAL_PRECISION_AUTO
+
+	assert(BigInt.from("123").format(f) == "123")
+	assert(BigInt.from("1234").format(f) == "1234")
+	assert(BigInt.from("123456").format(f) == "12万")
+	assert(BigInt.from("1234567").format(f) == "123万")
+
+	f.digit_separator = BigIntJapaneseFormatter.DIGIT_SEPARATOR_COMMA_MYRIADS
+
+	assert(BigInt.from("123").format(f) == "123")
+	assert(BigInt.from("1234").format(f) == "1234")
+	assert(BigInt.from("123456").format(f) == "12.3456万")
+	assert(BigInt.from("1234567").format(f) == "123.4567万")
+
+	%BigIntJapaneseFormatter.button_pressed = true
+
+func test_taiwanese_formatter() -> void:
+	var f := BigIntTaiwaneseFormatter.new()
+	
+	assert(BigInt.from("123").format(f) == "123")
+	assert(BigInt.from("1234").format(f) == "1234")
+	assert(BigInt.from("123456").format(f) == "123456")
+	assert(BigInt.from("1234567").format(f) == "1234567")
+
+	f.unit_adjustment = true
+	f.unit_adjustment_precision = BigIntTaiwaneseFormatter.DECIMAL_PRECISION_AUTO
+
+	assert(BigInt.from("123").format(f) == "123")
+	assert(BigInt.from("1234").format(f) == "1234")
+	assert(BigInt.from("123456").format(f) == "12萬")
+	assert(BigInt.from("1234567").format(f) == "123萬")
+
+	f.digit_separator = BigIntTaiwaneseFormatter.DIGIT_SEPARATOR_COMMA_MYRIADS
+
+	assert(BigInt.from("123").format(f) == "123")
+	assert(BigInt.from("1234").format(f) == "1234")
+	assert(BigInt.from("123456").format(f) == "12.3456萬")
+	assert(BigInt.from("1234567").format(f) == "123.4567萬")
+
+	%BigIntTaiwaneseFormatter.button_pressed = true
+
+func test_chinese_formatter() -> void:
+	var f := BigIntChineseFormatter.new()
+	
+	assert(BigInt.from("123").format(f) == "123")
+	assert(BigInt.from("1234").format(f) == "1234")
+	assert(BigInt.from("123456").format(f) == "123456")
+	assert(BigInt.from("1234567").format(f) == "1234567")
+
+	f.unit_adjustment = true
+	f.unit_adjustment_precision = BigIntChineseFormatter.DECIMAL_PRECISION_AUTO
+
+	assert(BigInt.from("123").format(f) == "123")
+	assert(BigInt.from("1234").format(f) == "1234")
+	assert(BigInt.from("123456").format(f) == "12万")
+	assert(BigInt.from("1234567").format(f) == "123万")
+
+	f.digit_separator = BigIntChineseFormatter.DIGIT_SEPARATOR_COMMA_MYRIADS
+
+	assert(BigInt.from("123").format(f) == "123")
+	assert(BigInt.from("1234").format(f) == "1234")
+	assert(BigInt.from("123456").format(f) == "12.3456万")
+	assert(BigInt.from("1234567").format(f) == "123.4567万")
+
+	%BigIntChineseFormatter.button_pressed = true
+
 #-------------------------------------------------------------------------------
 
 var _test_array: Array[Callable] = [
@@ -188,6 +339,14 @@ var _test_array: Array[Callable] = [
 	test_modulo,
 	test_to_string,
 	test_to_int,
+	
+	# 1.1.0
+	test_si_formatter,
+	test_short_form_formatter,
+	test_long_form_formatter,
+	test_japanese_formatter,
+	test_taiwanese_formatter,
+	test_chinese_formatter,
 ]
 
 func _ready() -> void:

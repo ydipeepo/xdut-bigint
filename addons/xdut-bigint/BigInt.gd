@@ -1,35 +1,8 @@
-#-------------------------------------------------------------------------------
-#
-#
-#	Copyright 2022-2024 Ydi (@ydipeepo.bsky.social)
-#
-#
-#	Permission is hereby granted, free of charge, to any person obtaining
-#	a copy of this software and associated documentation files (the "Software"),
-#	to deal in the Software without restriction, including without limitation
-#	the rights to use, copy, modify, merge, publish, distribute, sublicense,
-#	and/or sell copies of the Software, and to permit persons to whom
-#	the Software is furnished to do so, subject to the following conditions:
-#
-#	The above copyright notice and this permission notice shall be included in
-#	all copies or substantial portions of the Software.
-#
-#	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-#	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-#	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-#	THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-#	ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-#	OTHER DEALINGS IN THE SOFTWARE.
-#
-#
-#-------------------------------------------------------------------------------
-
 ## 巨大な符号なし整数を扱うためのクラスです。
 class_name BigInt
 
 #-------------------------------------------------------------------------------
-#	PROPERTIES
+#	CONSTANTS
 #-------------------------------------------------------------------------------
 
 ## 0 を表す [BigInt]。
@@ -175,6 +148,10 @@ func modulo(value: Variant) -> BigInt:
 	array1 = _modulo(array1, array2, true)
 	return new(array1)
 
+## この [BigInt] を [BigIntFormatter] により [code]String[/code] 型として表現される文字列に変換します。
+func format(formatter: BigIntFormatter) -> String:
+	return formatter.format(self)
+
 ## この [BigInt] を [code]int[/code] 型として表現される整数に変換します。
 func to_int() -> int:
 	var array := _read_big_int(self)
@@ -184,11 +161,6 @@ func to_int() -> int:
 	return int(to_string())
 
 #-------------------------------------------------------------------------------
-
-#
-# 以下のコードの GDScript ポートです。
-# //www.geeksforgeeks.org/bigint-big-integers-in-c-with-example/
-#
 
 const _INT_MAX := 9223372036854775807
 
