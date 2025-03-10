@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dfpp51itiuggs"]
 
-[ext_resource type="Script" path="res://Test_BigInt.gd" id="1_njdli"]
+[ext_resource type="Script" uid="uid://b0vg7rmbd1v4t" path="res://Test_BigInt.gd" id="1_njdli"]
 
 [node name="Test_BigInt" type="MarginContainer"]
 auto_translate_mode = 2

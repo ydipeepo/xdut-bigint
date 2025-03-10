@@ -14,7 +14,7 @@ config/name="XDUT Big Integer"
 config/description="巨大な符号なし整数を扱うためのアドオンです。"
 config/tags=PackedStringArray("xdut")
 run/main_scene="res://Test_BigInt.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 boot_splash/fullsize=false
@@ -31,6 +31,12 @@ window/vsync/vsync_mode=0
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/xdut-bigint/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/xdut-bigint/": "pink"
+}
 
 [filesystem]
 
